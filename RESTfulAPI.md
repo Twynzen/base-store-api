@@ -17,3 +17,6 @@
 # Delete
 >Eliminar
 
+# SRP Single Responsability principle
+Se debe organizar para que cada parte o archivo del codigo sea especifica en lo que controla. 
+
