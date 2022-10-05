@@ -1,13 +1,18 @@
+const express = require('express');
+
 const productsRouter = require('./productsRouter');
 const usersRouter = require('./usersRouter');
 const categoriesRouter = require('./categoriesRouter');
 const clientsRouter = require('./clientsRouter');
 
 function routerApi(app) {
-    app.use('/products', productsRouter);
-    app.use('/users', usersRouter);
-    app.use('/categories', categoriesRouter);
-    app.use('/clients', clientsRouter);
+    //Creamos una ruta maestra para verisones futuras y mantenimiento
+    const router = express.Router();
+    app.use('/api/v1', router)
+    router.use('/products', productsRouter);
+    router.use('/users', usersRouter);
+    router.use('/categories', categoriesRouter);
+    router.use('/clients', clientsRouter);
 
 
 }

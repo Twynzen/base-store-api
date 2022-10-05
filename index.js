@@ -5,9 +5,9 @@ const routerApi = require('./routes'); //El archivo index se busca en automatico
 const port = 3000;
 const app = express();
 
-
+//midelware
+app.use(express.json());
 // Estos son los endPoints
-
 app.get('/', (req, res) => {
     res.send('hola mi server en express')
 });
