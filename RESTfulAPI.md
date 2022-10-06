@@ -9,9 +9,9 @@
 # Get
 >Obterner
 # Put
->Modificar/Actualizar =>  Cualquier número de solicitudes repetidas e idénticas dejará el recurso en el mismo estado.
+>Modificar/Actualizar =>  Cualquier número de solicitudes repetidas e idénticas dejará el recurso en el mismo estado. Requiere todos los atributos.
 # Patch
->Modificar/Actualizar
+>Modificar/Actualizar => actualiza valores especificos, actualizaciones parciales
 # Post
 >Crear
 # Delete
