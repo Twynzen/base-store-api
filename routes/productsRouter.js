@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const ProductsService = require('../services/product.service');
+const ProductsService = require('../services/productService');
 const service = new ProductsService();
 
 
@@ -42,12 +42,26 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.patch('/:id', (req, res) => {
+    const { id } = req.params;
+    const body = req.body;
+    const product = service.update(id, body);
+    res.json(product);
+});
+router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+    const rta = service.delete(id);
+    res.json(rta);
+});
+
+
 router.post('/', (req, res) => {
     const body = req.body;
-    res.json({
+    const newProduct = service.create(body);
+    res.status(201).json({
         message: 'created',
         data: body
-    })
-})
+    });
+});
 
 module.exports = router;

@@ -1,27 +1,24 @@
 //npm i faker@5.5.3 -S
-const faker = require('../node_modules/faker');
+const faker = require('faker');
 
-
-class ProductsService {
+class ClientsService {
 
     constructor() {
-        this.products = [];
+        this.clients = [];
         this.generate();
     }
 
     generate() {
         const limit = 100;
         for (let index = 0; index < limit; index++) {
-            this.products.push({
+            this.clients.push({
                 //Faker buenisimo para crear data falsa
                 id: faker.datatype.uuid(),
-                name: faker.commerce.productName(),
-                price: parseInt(faker.commerce.price(), 10),
-                image: faker.image.imageUrl(),
+                name: faker.name.firstName(),
+                lastName: faker.name.lastName(),
             });
         }
     }
-
     create() {
 
     }
@@ -40,4 +37,4 @@ class ProductsService {
 
 }
 
-module.exports = ProductsService
+module.exports = ClientsService
