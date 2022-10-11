@@ -20,3 +20,19 @@
 # SRP Single Responsability principle
 Se debe organizar para que cada parte o archivo del codigo sea especifica en lo que controla. 
 
+# Middlewares 
+* Funcionan como pipes
+* Validar datos
+* Capturar errores
+* Validar permisos
+* Controlar accesos
+
+``` js
+function (req, res, next){
+  if(something){
+    res.send('end')
+  }else{
+    next();
+  }
+}
+``` 
