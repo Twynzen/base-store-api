@@ -15,33 +15,41 @@ router.get('/filter', (req, res) => {
     res.send('Yo soy un filter');
 });
 
-router.get('/:id', async(req, res) => {
-    const { id } = req.params;
-    const product = await service.findOne(id);
-    res.json(product);
+router.get('/:id', async(req, res, next) => {
+    try {
+        const { id } = req.params;
+        const product = await service.findOne(id);
+        res.json(product);
+    } catch (error) {
+        next(error);
+    }
 });
 
-router.get('/:id', (req, res) => {
-    //los {} funcionan para que de todos los parametros de req.paramas, solo recoja el id
-    const { id } = req.params;
+// router.get('/:id', (req, res) => {
+//los {} funcionan para que de todos los parametros de req.paramas, solo recoja el id
+//     const { id } = req.params;
 
-    res.json({
-        id,
-        name: 'producto1',
-        price: 1000
-    });
-});
+//     res.json({
+//         id,
+//         name: 'producto1',
+//         price: 1000
+//     });
+// });
 //Evitar choques entre endpoints, todo esta en el orden de ejecución de los endpoints
 
-router.get('/:id', (req, res) => {
-    const { id } = req.params
-    res.json({
-        id,
-        name: 'Videojuegos',
-        price: 4000,
-        available: true
-    });
-});
+// router.get('/:id', (req, res) => {
+//     try {
+//         const { id } = req.params;
+//         res.json({
+//             id,
+//             name: 'Videojuegos',
+//             price: 4000,
+//             available: true
+//         });
+//     } catch (error) {
+//         next(error);
+//     }
+// });
 
 router.patch('/:id', async(req, res) => {
     try {

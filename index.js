@@ -4,6 +4,7 @@ const express = require('express');
 const routerApi = require('./routes'); //El archivo index se busca en automatico
 const port = 3000;
 const app = express();
+const { logErrors, errorHandler } = require('./middlewares/errorHandler')
 
 //midelware
 app.use(express.json());
@@ -19,6 +20,10 @@ app.get('/nueva-ruta', (req, res) => {
 app.listen(port, () => {
     console.log('Mi port ', port);
 });
+
+app.use(logErrors);
+app.use(errorHandler);
+
 
 //Podemos con estas rutas colocar jsons los datos que enviaremos
 
