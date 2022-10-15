@@ -4,7 +4,7 @@ const express = require('express');
 const routerApi = require('./routes'); //El archivo index se busca en automatico
 const port = 3000;
 const app = express();
-const { logErrors, errorHandler } = require('./middlewares/errorHandler')
+const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/errorHandler')
 
 //midelware
 app.use(express.json());
@@ -22,6 +22,7 @@ app.listen(port, () => {
 });
 
 app.use(logErrors);
+app.use(boomErrorHandler);
 app.use(errorHandler);
 
 
