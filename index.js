@@ -21,11 +21,13 @@ app.listen(port, () => {
     console.log('Mi port ', port);
 });
 
-app.use(logErrors);
-app.use(boomErrorHandler);
-app.use(errorHandler);
+
 
 
 //Podemos con estas rutas colocar jsons los datos que enviaremos
 
 routerApi(app);
+//Es importante ejecutar los middleware despues de el router Api
+app.use(logErrors);
+app.use(boomErrorHandler);
+app.use(errorHandler);
