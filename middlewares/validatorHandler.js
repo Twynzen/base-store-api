@@ -9,7 +9,9 @@ function validatorHandler(schema, property) {
         req.params
         req.query
         */
-        const error = schema.validate();
+
+        //abortEarly sirve para encontrar todos los errores y mostrarlos en la petición
+        const error = schema.validate(data, { abortEarly: false });
         if (error) {
             next(boom.badRequest(error));
         }
