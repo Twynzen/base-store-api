@@ -11,7 +11,7 @@ function validatorHandler(schema, property) {
         */
 
         //abortEarly sirve para encontrar todos los errores y mostrarlos en la petición
-        const error = schema.validate(data, { abortEarly: false });
+        const { error } = schema.validate(data, { abortEarly: false });
         if (error) {
             next(boom.badRequest(error));
         }
