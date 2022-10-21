@@ -1,16 +1,16 @@
 const faker = require("faker");
 
-class CategoriesService {
+class UsersService {
 
     constructor() {
-        this.categories = [];
+        this.users = [];
         this.generate();
     }
 
     generate() {
         const limit = 100;
         for (let index = 0; index < limit; index++) {
-            this.categories.push({
+            this.users.push({
                 id: faker.datatype.uuid(),
                 name: faker.commerce.productMaterial(),
                 product: faker.datatype.number({ max: 100 })
@@ -22,10 +22,10 @@ class CategoriesService {
 
     }
     find() {
-        return this.categories;
+        return this.users;
     }
     findOne(id) {
-        return this.categories.find(item => item.id === id);
+        return this.users.find(item => item.id === id);
     }
     update() {
 
@@ -35,4 +35,4 @@ class CategoriesService {
     }
 
 }
-module.exports = CategoriesService
+module.exports = UsersService

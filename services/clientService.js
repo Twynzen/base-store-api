@@ -16,17 +16,25 @@ class ClientsService {
                 id: faker.datatype.uuid(),
                 name: faker.name.firstName(),
                 lastName: faker.name.lastName(),
+                isBlock: faker.datatype.boolean(),
             });
         }
     }
     create() {
+        //spread operation para hacer merge de ambos objetos
+        const newClient = {
+            id: faker.datatype.uuid(),
+            ...data
+        }
+        this.clients.push(newClient);
+        return newClient;
 
     }
     find() {
-        return this.products;
+        return this.clients;
     }
     findOne(id) {
-        return this.products.find(item => item.id === id);
+        return this.clients.find(item => item.id === id);
     }
     update() {
 
