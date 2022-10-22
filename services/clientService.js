@@ -34,7 +34,18 @@ class ClientsService {
         return this.clients;
     }
     findOne(id) {
-        return this.clients.find(item => item.id === id);
+        const index = this.products.findIndex(item => item.id === id);
+        if (index === -1) {
+            throw boom.notFound('Producto not found');
+        }
+        const product = this.products[index];
+        //con los puntitos persistimos información
+        this.products[index] = {
+            ...product,
+            ...changes
+        }
+        return this.products[index];
+        // return this.clients.find(item => item.id === id);
     }
     update() {
 

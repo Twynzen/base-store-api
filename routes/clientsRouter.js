@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const ClientsService = require('../services/clientService');
 const service = new ClientsService();
+const validatorHandler = require('../middlewares/validatorHandler');
+const { createProductSchema, updateProductSchema, getProductSchema } = require('../schemas/productSchema');
+
 
 router.get('/', (req, res) => {
     const clients = service.find();
