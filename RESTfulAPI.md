@@ -60,3 +60,9 @@ Este middleware nos permite evitar preocuparnos por escribir las rutas con o sin
 Passport es un middleware que nos permite establecer diferentes estrategias de autenticación a nuestras aplicaciones. https://github.com/jaredhanson/passport
 
 Puedes encontrar más middlewares populares en el siguiente enlace: http://expressjs.com/en/resources/middleware.html
+
+# Railway
+Como alternativa a heroku por que ahora es de pago elegí Railway https://railway.app/dashboard
+Tiene prohibido desplegar este tipo de aplicaciones
+
+<img src="railway.png" alt="drawing" style="width:500px;"/>

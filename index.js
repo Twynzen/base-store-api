@@ -4,8 +4,17 @@ const express = require('express');
 const routerApi = require('./routes'); //El archivo index se busca en automatico
 const port = 3000;
 const app = express();
+const conn = require("express-myconnection");
 const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/errorHandler');
 const cors = require('cors');
+
+const dbConfig = {
+    host: process.env.DB_HOST || "localhost",
+    port: process.env.DB_PORT || "3000",
+    user: process.env.DB_USER || "root",
+    password: process.env.DB_PASSWORD || "root123",
+    database: process.env.DB_NAME || "store-api"
+}
 
 //Sirve para que se habilite cualquier origen, sirve para apis publicas
 // app.use(cors());
@@ -48,3 +57,5 @@ routerApi(app);
 app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
+//Vamos a continuar con el curso de postgresql antes de hacer la subida a railway
+// app.use(conn(postgresql))
