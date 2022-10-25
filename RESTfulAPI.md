@@ -66,3 +66,25 @@ Como alternativa a heroku por que ahora es de pago elegí Railway https://railwa
 Tiene prohibido desplegar este tipo de aplicaciones
 
 <img src="railway.png" alt="drawing" style="width:500px;"/>
+
+# DOCKER
+Se usa para administrar bases de datos,se debe en un archivo con nombre
+>docker-compose.yml
+Escribir este codigo:
+
+``` yml
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:latest
+    eviroment:
+      POSTGRES_DB: store_api
+      POSTGRES_USER: daniel
+      POSTGRES_PASSWORD: admin123
+    ports:
+      5432:5432
+
+``` 
+Usamos este comando para que funcione en segundo plano y con el nombre de la base de datos en este caso postgres
+>docker-compose up -d postgres

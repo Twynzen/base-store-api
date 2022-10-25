@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:13
+    eviroment:
+      - POSTGRES_DB=store-api
+      - POSTGRES_USER=daniel
+      - POSTGRES_PASSWORD=admin123
+    ports:
+     - 5432:5432
