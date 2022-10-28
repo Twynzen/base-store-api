@@ -3,9 +3,9 @@ version: '3.3'
 services:
   postgres:
     image: postgres:13
-    eviroment:
+    environment:
       - POSTGRES_DB=store-api
       - POSTGRES_USER=daniel
-      - POSTGRES_PASSWORD=admin123
+      - POSTGRES_PASSWORD=admin12345
     ports:
-     - 5432:5432
+     - '5432:5432'

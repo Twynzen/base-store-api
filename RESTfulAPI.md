@@ -69,6 +69,9 @@ Tiene prohibido desplegar este tipo de aplicaciones
 
 # DOCKER
 Se usa para administrar bases de datos,se debe en un archivo con nombre
+
+**Importante: TENER EJECUTANDO EL DOCKER**
+
 >docker-compose.yml
 Escribir este codigo:
 
@@ -77,14 +80,19 @@ version: '3.3'
 
 services:
   postgres:
-    image: postgres:latest
-    eviroment:
-      POSTGRES_DB: store_api
-      POSTGRES_USER: daniel
-      POSTGRES_PASSWORD: admin123
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=store-api
+      - POSTGRES_USER=daniel
+      - POSTGRES_PASSWORD=admin12345
     ports:
-      5432:5432
+     - '5432:5432'
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
 
 ``` 
 Usamos este comando para que funcione en segundo plano y con el nombre de la base de datos en este caso postgres
 >docker-compose up -d postgres
+
+Con este comando vemos donde esta corriendo 
+>docker-compose ps
