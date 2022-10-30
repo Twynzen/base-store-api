@@ -96,3 +96,5 @@ Usamos este comando para que funcione en segundo plano y con el nombre de la bas
 
 Con este comando vemos donde esta corriendo 
 >docker-compose ps
+
+La documentación de docker esta muy util en hub.docker.com
