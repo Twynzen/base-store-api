@@ -97,4 +97,16 @@ Usamos este comando para que funcione en segundo plano y con el nombre de la bas
 Con este comando vemos donde esta corriendo 
 >docker-compose ps
 
+Con este comando damos opciones de ejecución por comandos, aquí controlariamos el contenedor
+>docker-compose exec "Nombre de contenedor" bash
+
+Podemos agregar una interfaz grafica para manipular las bases de datos, una recomendada es pgadmin
+>docker-compose up -d pgadmin
+
+Con este comando podemos ver los contendedores corriendo
+>docker ps
+
+Con inspect podemos revisar la data de el contenedor de docker ejemplo:
+>docker inspect "aquí iría el id del contenedor
+
 La documentación de docker esta muy util en hub.docker.com
