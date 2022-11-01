@@ -1,4 +1,6 @@
 const faker = require("faker");
+const getConnection = require('../libs/postgres');
+
 
 class UsersService {
 
@@ -21,8 +23,11 @@ class UsersService {
     create() {
 
     }
-    find() {
-        return this.users;
+    async find() {
+        const client = await getConnection();
+        const rta = client.query('SELECT * FROM task');
+        console.log(rta.rows);
+        return rta.rows;
     }
     findOne(id) {
         return this.users.find(item => item.id === id);

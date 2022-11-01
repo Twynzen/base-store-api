@@ -2,6 +2,7 @@
 const faker = require('faker');
 //npm i @hapi/boom
 const boom = require('@hapi/boom');
+const getConnection = require('../libs/postgres');
 
 
 class ProductsService {

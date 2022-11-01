@@ -4,7 +4,7 @@ const express = require('express');
 const routerApi = require('./routes'); //El archivo index se busca en automatico
 const port = 3000;
 const app = express();
-const conn = require("express-myconnection");
+// const conn = require("express-myconnection");
 const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/errorHandler');
 const cors = require('cors');
 
@@ -17,19 +17,19 @@ const dbConfig = {
 }
 
 //Sirve para que se habilite cualquier origen, sirve para apis publicas
-// app.use(cors());
+app.use(cors());
 
-const whitelist = ['http://localhost:8888'];
+const whitelist = ['http://localhost:8888', 'http://localhost:5050'];
 const options = {
-    origin: (origin, callback) => {
-        if (whitelist.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('No permitido loca mp'))
+        origin: (origin, callback) => {
+            if (whitelist.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback(new Error('No permitido loca mp'))
+            }
         }
     }
-}
-app.use(cors(options));
+    // app.use(cors(options));
 
 
 //midelware
